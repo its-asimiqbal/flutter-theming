@@ -1,22 +1,27 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_theming/main.dart';
 
-class MainScreen extends StatefulWidget {
-  const MainScreen({super.key});
+class MyHomeScreen1 extends StatefulWidget {
+  const MyHomeScreen1({super.key});
 
   @override
-  State<MainScreen> createState() => _MainScreenState();
+  State<MyHomeScreen1> createState() => _MyHomeScreen1State();
 }
 
-class _MainScreenState extends State<MainScreen> {
+class _MyHomeScreen1State extends State<MyHomeScreen1> {
   @override
   Widget build(BuildContext context) {
+    // ThemeManager themeManager = ThemeManager();
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('Theme App'),
         actions: [
           Switch(
-            value: false,
-            onChanged: (newValue) {},
+            value: themeManager.themeMode == ThemeMode.dark,
+            onChanged: (newValue) {
+              themeManager.toggleTheme(newValue);
+            },
           ),
         ],
       ),
@@ -56,6 +61,12 @@ class _MainScreenState extends State<MainScreen> {
             ElevatedButton(
               onPressed: () {},
               child: const Text('Click Here'),
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Text(
+              'Current theme: ${Theme.of(context).brightness == Brightness.dark ? 'Dark' : 'Light'}',
             ),
           ],
         ),
