@@ -11,7 +11,7 @@ class MyHomeScreen1 extends StatefulWidget {
 class _MyHomeScreen1State extends State<MyHomeScreen1> {
   @override
   Widget build(BuildContext context) {
-    // ThemeManager themeManager = ThemeManager();
+    TextTheme _textTheme = Theme.of(context).textTheme;
 
     return Scaffold(
       appBar: AppBar(
@@ -42,11 +42,20 @@ class _MyHomeScreen1State extends State<MyHomeScreen1> {
             const SizedBox(
               height: 20,
             ),
-            const Text('Your Name'),
+            Text(
+              'Asim Iqbal',
+              style: _textTheme.headlineMedium?.copyWith(
+                color: Colors.black,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
             const SizedBox(
               height: 10,
             ),
-            const Text('@yourusername'),
+            Text(
+              '@yourusername',
+              style: _textTheme.bodyMedium,
+            ),
             const SizedBox(
               height: 10,
             ),
