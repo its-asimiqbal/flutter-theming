@@ -1,4 +1,4 @@
-# flutter_theming
+# Flutter-Theming
 
 A new Flutter project.
 
